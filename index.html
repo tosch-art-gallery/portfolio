@@ -19,20 +19,27 @@
 
 <!-- CSS: Die Gestaltungsregeln (kannst du in deine style.css einfügen) -->
 <style>
-  /* Verhindert ungewollte Ränder ganz oben */
-  body {
+ /* Ränder der Seite komplett entfernen */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  /* Der Kopfbereich geht über die volle Breite */
+  .site-header {
+    width: 100%;
+    background-color: #000000;
     margin: 0;
     padding: 0;
   }
 
-  /* Der schwarze Hintergrund für den gesamten Kopfbereich */
-  .site-header {
+  /* Das Bild dehnt sich auf 100% der Bildschirmbreite aus */
+  .banner-logo {
     width: 100%;
-    background-color: #000000;
-    padding: 20px 0;
-    text-align: center;
+    height: auto;
+    display: block;
   }
-
   /* Behälter für das Logo */
   .banner-container {
     max-width: 1200px;
@@ -40,13 +47,7 @@
     padding: 0 20px;
   }
 
-  /* Passt das Bild automatisch an Bildschirmgrößen an */
-  .banner-logo {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
+
     
         /* CSS RESET & VARIABLES */
         * {
