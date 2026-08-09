@@ -10,7 +10,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <style>
+
+    <header class="site-header">
+  <div class="banner-container">
+    <img src="banner-tosch.png" alt="Tosch Art Logo" class="banner-logo">
+  </div>
+</header>
+
+<!-- CSS: Die Gestaltungsregeln (kannst du in deine style.css einfügen) -->
+<style>
+  /* Verhindert ungewollte Ränder ganz oben */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Der schwarze Hintergrund für den gesamten Kopfbereich */
+  .site-header {
+    width: 100%;
+    background-color: #000000;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  /* Behälter für das Logo */
+  .banner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Passt das Bild automatisch an Bildschirmgrößen an */
+  .banner-logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+    
         /* CSS RESET & VARIABLES */
         * {
             box-sizing: border-box;
