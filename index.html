@@ -38,12 +38,12 @@
             line-height: 1.8;
         }
 
-        /* NAVIGATIONSLEISTE GANZ OBEN (ÜBER DEM BANNER) */
+        /* NAVIGATIONSLEISTE (Für alle Bildschirmgrößen) */
         .top-nav {
             width: 100%;
-            background-color: #050505; /* Sehr dunkler Hintergrund */
+            background-color: #050505;
             border-bottom: 1px solid #1a1a1a;
-            padding: 15px 0;
+            padding: 15px 10px;
             text-align: center;
         }
 
@@ -51,28 +51,38 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            display: inline-flex;
-            gap: 35px; /* Abstand zwischen den Menüpunkten */
+            display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 15px 25px;
         }
 
         .top-nav a {
             color: var(--text-muted);
             text-decoration: none;
             font-family: var(--font-heading);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             transition: color 0.3s ease;
+            display: inline-block;
+            padding: 5px;
         }
 
-        /* Gold-Effekt beim Drüberfahren mit der Maus */
-        .top-nav a:hover {
+        .top-nav a:hover,
+        .top-nav a.active {
             color: var(--accent-gold);
         }
 
-        /* BANNER (DIREKT UNTER DER NAVIGATION) */
+        /* Speziell für kleine Smartphone-Displays */
+        @media (max-width: 600px) {
+            .top-nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* BANNER (Volle 100% Breite) */
         .top-banner {
             width: 100%;
             background-color: #000000;
@@ -214,19 +224,19 @@
 </head>
 <body>
 
-    <!-- 1. NAVIGATIONSLEISTE (GANZ OBEN) -->
+    <!-- NAVIGATION -->
     <nav class="top-nav">
         <ul>
-            <li><a href="index.html">Startseite</a></li>
+            <li><a href="index.html" class="active">Startseite</a></li>
             <li><a href="galerie.html">Galerie</a></li>
             <li><a href="ausstellungen.html">Veröffentlichungen & Ausstellungen</a></li>
             <li><a href="nutzungsrechte.html">Erwerb der Nutzungsrechte</a></li>
-            <li><a href="index.html#about">Über ToSch</a></li>
-            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="#about">Über ToSch</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
         </ul>
     </nav>
 
-    <!-- 2. BANNER (UNTER DER NAVIGATION) -->
+    <!-- BANNER -->
     <div class="top-banner">
         <img src="banner-tosch1.png" alt="ToSch Art Banner">
     </div>
