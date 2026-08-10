@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToSch | Erwerb der Nutzungsrechte</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS RESET & VARIABLES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-color: #0c0c0c;
+            --card-bg: #161616;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --accent-gold: #c5a059;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.8;
+        }
+
+        /* NAVIGATION (DESKTOP) */
+        .top-nav {
+            width: 100%;
+            background-color: #050505;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 15px 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .top-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 25px;
+        }
+
+        .top-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .top-nav a:hover,
+        .top-nav a.active {
+            color: var(--accent-gold);
+        }
+
+        /* BURGER BUTTON */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px 15px;
+            margin: 0 auto;
+        }
+
+        /* MOBILE ANSICHT */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .top-nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 12px;
+                padding-top: 15px;
+            }
+
+            .top-nav ul.show {
+                display: flex;
+            }
+        }
+
+        /* BANNER */
+        .top-banner {
+            width: 100%;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* HAUPTINHALT / SEKTIONEN */
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--accent-gold);
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .intro-lead {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* TEXTBLOCK MIT OBERER & UNTERER LINIE */
+        .bordered-text-block {
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+            padding: 40px 0;
+            margin-bottom: 50px;
+        }
+
+        .text-body {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .text-body strong {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        /* NETZWERK / LISTE DER OPTIONEN */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .rights-card {
+            background-color: var(--card-bg);
+            border: 1px solid #222;
+            padding: 30px 25px;
+            border-radius: 4px;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .rights-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .rights-card h3 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        .rights-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ANFRAGE BOX */
+        .contact-box {
+            background-color: #111;
+            border: 1px solid var(--accent-gold);
+            padding: 35px 25px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 4px;
+        }
+
+        .contact-box h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 12px 30px;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        /* MOBIL-ANPASSUNGEN */
+        @media (max-width: 600px) {
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .content-section {
+                padding: 35px 15px 50px;
+            }
+
+            .rights-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            font-size: 0.85rem;
+            border-top: 1px solid #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION WITH BURGER MENU -->
+    <nav class="top-nav">
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menü öffnen">&#9776;</button>
+        <ul id="nav-list">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="ausstellungen.html">Veröffentlichungen & Ausstellungen</a></li>
+            <li><a href="nutzungsrechte.html" class="active">Erwerb der Nutzungsrechte</a></li>
+            <li><a href="#about">Über ToSch</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- BANNER -->
+    <div class="top-banner">
+        <img src="banner-tosch1.png" alt="ToSch Art Banner">
+    </div>
+
+    <!-- HAUPTINHALT -->
+    <main class="content-section">
+        <h1 class="page-title">Erwerb von Nutzungsrechten</h1>
+        <p class="intro-lead">
+            Lizenzierung und Verwendung der Kunstwerke von ToSch für gewerbliche und private Projekte.
+        </p>
+
+        <div class="bordered-text-block">
+            <p class="text-body">
+                Alle auf dieser Website gezeigten Kunstwerke, Unikate und Fotografien sind urheberrechtlich geschützt. Neben dem Erwerb von physischen Originalen besteht die Möglichkeit, <strong>Nutzungsrechte (Lizenzen)</strong> für digitale oder gedruckte Veröffentlichungen zu erwerben.
+            </p>
+            <p class="text-body">
+                Egal ob für Publikationen, redaktionelle Beiträge, Produktgestaltungen, Werbekampagnen oder repräsentative Zwecke – wir bieten maßgeschneiderte Vereinbarungen für Ihre Anforderungen.
+            </p>
+
+            <div class="rights-grid">
+                <div class="rights-card">
+                    <h3>Redaktionell</h3>
+                    <p>Nutzung in Büchern, Magazinen, Zeitungen sowie digitalen Fachartikeln und Online-Publikationen.</p>
+                </div>
+
+                <div class="rights-card">
+                    <h3>Kommerziell</h3>
+                    <p>Verwendung für Werbung, PR-Materialien, Firmenbroschüren, Webseiten oder Produktverpackungen.</p>
+                </div>
+
+                <div class="rights-card">
+                    <h3>Exklusivrechte</h3>
+                    <p>Maßgeschneiderte exklusive Nutzung für ausgewählte Werke nach individueller Absprache.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <h3>Sie haben Interesse an einer Lizenzierung?</h3>
+            <p>Senden Sie uns eine unverbindliche Anfrage mit Angabe des gewünschten Werkes sowie des Verwendungszwecks.</p>
+            <a href="index.html#kontakt" class="btn-gold">Jetzt Anfrage Senden</a>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; ToSch . Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function toggleMenu() {
+            var navList = document.getElementById('nav-list');
+            navList.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
