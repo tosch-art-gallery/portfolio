@@ -239,6 +239,31 @@
             text-transform: uppercase;
         }
 
+        /* ERGÄNZUNG: BILDER NEBENEINANDER IN DER MOBILEN ANSICHT */
+        @media (max-width: 600px) {
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .img-wrapper {
+                height: 140px;
+            }
+
+            .art-info {
+                padding: 8px 4px;
+            }
+
+            .art-title {
+                font-size: 0.75rem;
+            }
+
+            .art-details {
+                font-size: 0.6rem;
+            }
+        }
+
         /* FOOTER */
         footer {
             text-align: center;
@@ -304,8 +329,6 @@
     <div class="top-banner">
         <img src="banner-tosch1.png" alt="ToSch Art Banner">
     </div>
-
-   
 
     <!-- GALERIE -->
     <main class="gallery-container">
