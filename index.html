@@ -38,13 +38,14 @@
             line-height: 1.8;
         }
 
-        /* NAVIGATIONSLEISTE (Für alle Bildschirmgrößen) */
+        /* NAVIGATION (DESKTOP) */
         .top-nav {
             width: 100%;
             background-color: #050505;
             border-bottom: 1px solid #1a1a1a;
             padding: 15px 10px;
             text-align: center;
+            position: relative;
         }
 
         .top-nav ul {
@@ -74,11 +75,34 @@
             color: var(--accent-gold);
         }
 
-        /* Speziell für kleine Smartphone-Displays */
-        @media (max-width: 600px) {
+        /* BURGER BUTTON (Standardmäßig am PC versteckt) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px 15px;
+            margin: 0 auto;
+        }
+
+        /* MOBILE ANSICHT (Handy) */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; /* Zeigt den Burger-Button an */
+            }
+
             .top-nav ul {
+                display: none; /* Versteckt die Menüpunkte standardmäßig */
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
+                padding-top: 15px;
+            }
+
+            /* Wird per JavaScript aktiviert, wenn man auf den Burger klickt */
+            .top-nav ul.show {
+                display: flex;
             }
         }
 
@@ -224,9 +248,10 @@
 </head>
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION WITH BURGER MENU -->
     <nav class="top-nav">
-        <ul>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menü öffnen">&#9776;</button>
+        <ul id="nav-list">
             <li><a href="index.html" class="active">Startseite</a></li>
             <li><a href="galerie.html">Galerie</a></li>
             <li><a href="ausstellungen.html">Veröffentlichungen & Ausstellungen</a></li>
@@ -299,6 +324,11 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        function toggleMenu() {
+            var navList = document.getElementById('nav-list');
+            navList.classList.toggle('show');
+        }
+
         function openModal(imageSrc) {
             document.getElementById('modal-img').src = imageSrc;
             document.getElementById('lightbox').style.display = 'flex';
