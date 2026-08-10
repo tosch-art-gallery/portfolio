@@ -26,23 +26,30 @@
     width: 100%;
   }
 
-  /* Der Kopfbereich geht über die volle Breite */
+
+
+  /* 2. Schwarzer Balken über die volle Breite */
   .site-header {
     width: 100%;
     background-color: #000000;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    justify-content: center; /* Zentriert den Inhalt waagerecht */
+    align-items: center;     /* Zentriert den Inhalt senkrecht */
   }
 
-  /* Das Bild dehnt sich auf 100% der Bildschirmbreite aus */
+  /* 3. Das Logo bleibt in seiner Größe, wird aber mittig ausgerichtet */
   .banner-logo {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
+    margin: 0 auto;          /* Zusätzliche Zentrierung für ältere Browser */
   }
-  /* Behälter für das Logo */
+
+
+ 
+  /* Behälter für das Logo?? */
   .banner-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
   }
